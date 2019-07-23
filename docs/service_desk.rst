@@ -7,13 +7,13 @@ Get info about Service Desk
 .. code-block:: python
 
     # Get info about Service Desk app
-    sd.get_info()
+    sd.info.get_info()
 
     # Get all service desks in the JIRA Service Desk application with the option to include archived service desks
-    sd.get_service_desks()
+    sd.info.get_service_desks()
 
     # Get the service desk for a given service desk ID
-    sd.get_service_desk_by_id(service_desk_id)
+    sd.info.get_service_desk_by_id(service_desk_id)
 
 Create customer
 ---------------
@@ -22,7 +22,7 @@ Create customer
 
 .. code-block:: python
 
-    sd.create_customer(full_name, email)
+    sd.customers.create_customer(full_name, email)
 
 The Request actions
 -------------------
@@ -30,25 +30,25 @@ The Request actions
 .. code-block:: python
 
     # Create customer request
-    sd.create_customer_request(service_desk_id, request_type_id, values_dict, raise_on_behalf_of=None)
+    sd.customers.create_customer_request(service_desk_id, request_type_id, values_dict, raise_on_behalf_of=None)
 
     # Get customer request by ID
-    sd.get_customer_request(issue_id_or_key)
+    sd.customers.get_customer_request(issue_id_or_key)
 
     # Get customer requests
-    sd.get_my_customer_requests()
+    sd.customers.get_my_customer_requests()
 
     # Get customer request status
-    sd.get_customer_request_status(issue_id_or_key)
+    sd.customers.get_customer_request_status(issue_id_or_key)
 
     # Create comment. Optional argument public (True or False), default is True
-    sd.create_request_comment(issue_id_or_key, body, public=True)
+    sd.customers.create_request_comment(issue_id_or_key, body, public=True)
 
     # Get request comments
-    sd.get_request_comments(issue_id_or_key)
+    sd.customers.get_request_comments(issue_id_or_key)
 
     # Get request comment
-    sd.get_request_comment_by_id(issue_id_or_key, comment_id)
+    sd.customers.get_request_comment_by_id(issue_id_or_key, comment_id)
 
 Manage a Participants
 ---------------------
@@ -56,15 +56,15 @@ Manage a Participants
 .. code-block:: python
 
     # Get request participants
-    sd.get_request_participants(issue_id_or_key, start=0, limit=50)
+    sd.participants.get_request_participants(issue_id_or_key, start=0, limit=50)
 
     # Add request participants
     # The calling user must have permission to manage participants for this customer request
-    sd.add_request_participants(issue_id_or_key, users_list)
+    sd.participants.add_request_participants(issue_id_or_key, users_list)
 
     # Remove request participants
     # The calling user must have permission to manage participants for this customer request
-    sd.remove_request_participants(issue_id_or_key, users_list)
+    sd.participants.remove_request_participants(issue_id_or_key, users_list)
 
 Transitions
 -----------
@@ -74,10 +74,10 @@ Transitions
 .. code-block:: python
 
     # Get customer transitions. A list of transitions that customers can perform on the request
-    sd.get_customer_transitions(issue_id_or_key)
+    sd.customers.get_customer_transitions(issue_id_or_key)
 
     # Perform transition. Optional argument comment (string), default is None
-    sd.perform_transition(issue_id_or_key, transition_id, comment=None)
+    sd.transitions.perform_transition(issue_id_or_key, transition_id, comment=None)
 
 Manage the Organizations
 ------------------------

@@ -6,9 +6,9 @@ Atlassian Python API wrapper
 Documentation
 -------------
 
-`Documentation (beta)`_
+`Documentation`_
 
-.. _Documentation (beta): https://atlassian-python-api.readthedocs.io/en/latest/index.html
+.. _Documentation: https://atlassian-python-api.readthedocs.io/en/latest/index.html
 
 Examples
 --------
@@ -76,7 +76,7 @@ Example to get your requests:
             url='http://localhost:7990',
             username='admin',
             password='admin')
-    my_requests = sd.get_my_customer_requests()
+    my_requests = sd.customers.get_my_customer_requests()
     print(my_requests)
 
 Please make sure, you've checked ``examples/`` directory on how to build scripts using the API.
